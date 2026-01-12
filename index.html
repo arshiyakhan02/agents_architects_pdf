@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<meta charset="UTF-8">
+<title>AgentsArchitects.ai</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+:root{
+  --purple:#6c6ff6;
+  --blue:#6a8cff;
+  --green:#2ecc71;
+  --bg:#f6fbff;
+  --card:#ffffff;
+  --border:#e5eaf3;
+  --text:#1f2937;
+}
+
+*{
+  box-sizing:border-box;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  width:100%;
+  background:#ffffff;
+  padding:12px 30px;
+  border-bottom:1px solid #e5eaf3;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:#111;
+  font-weight:600;
+  font-size:16px;
+}
+
+.logo img{
+  height:28px;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:60px 20px 40px;
+}
+
+/* Big white hero container */
+.hero-box{
+  max-width:1200px;
+  margin:auto;
+  background:white;
+  border-radius:32px;
+  padding:70px 60px 60px;
+  box-shadow:0 40px 90px rgba(0,0,0,.05);
+  text-align:center;
+}
+
+.hero h1{
+  max-width:900px;
+  margin:0 auto 50px;
+  font-size:48px;
+  line-height:1.2;
+  font-weight:700;
+  background:linear-gradient(90deg,#6a8cff,#7b5cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ---------- PILL CARDS ---------- */
+.pill-row{
+  display:flex;
+  gap:18px;
+  margin-top:20px;
+}
+
+.pill{
+  flex:1;
+  background:#fff;
+  border-radius:18px;
+  padding:22px 24px;
+  border-left:5px solid #cfd4e5;
+  box-shadow:0 12px 30px rgba(0,0,0,.04);
+  text-align:left;
+}
+
+.pill-label{
+  font-size:11px;
+  letter-spacing:.8px;
+  color:#7b8190;
+  margin-bottom:8px;
+  font-weight:600;
+}
+
+.pill-title{
+  font-size:18px;
+  font-weight:700;
+  color:#111827;
+  margin-bottom:6px;
+}
+
+.pill-sub{
+  font-size:14px;
+  color:#6b7280;
+  line-height:1.5;
+}
+
+/* GREEN STATUS CARD */
+.success-pill{
+  border-left:6px solid #1ecf77;
+}
+
+.success-pill .pill-title{
+  color:#18c96b;
+}
+
+/* ---------- EXECUTIVE SUMMARY ---------- */
+.exec-wrap{
+  max-width:1100px;
+  margin:80px auto 0;
+  background:#fff;
+  border-radius:24px;
+  padding:50px 50px 50px 55px;
+  border-left:6px solid #22c1a1;
+  box-shadow:0 20px 60px rgba(0,0,0,.05);
+}
+
+.exec-wrap h2{
+  margin:0 0 24px;
+  font-size:28px;
+  position:relative;
+}
+
+.exec-wrap h2:after{
+  content:'';
+  width:60px;
+  height:4px;
+  background:#6a8cff;
+  position:absolute;
+  left:0;
+  bottom:-10px;
+  border-radius:4px;
+}
+
+.exec-wrap p{
+  color:#4b5563;
+  line-height:1.7;
+  font-size:16px;
+  margin:18px 0;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .pill-row{
+    flex-direction:column;
+  }
+  .hero-box{
+    padding:50px 30px;
+  }
+  .hero h1{
+    font-size:36px;
+  }
+}
+
+@media(max-width:500px){
+  .hero h1{
+    font-size:28px;
+  }
+  .exec-wrap{
+    padding:35px 25px;
+  }
+}
+
+
+
+
+
+
+.solution-section{
+  max-width:1200px;
+  margin:120px auto 0;
+  padding:0 20px;
+}
+
+.solution-title{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.solution-underline{
+  width:70px;
+  height:5px;
+  background:linear-gradient(90deg,#6a8cff,#7b5cff);
+  border-radius:10px;
+  margin-bottom:30px;
+}
+
+.solution-desc{
+  max-width:900px;
+  color:#4b5563;
+  font-size:17px;
+  line-height:1.7;
+  margin-bottom:60px;
+}
+
+/* Cards */
+.solution-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:34px;
+}
+
+.solution-card{
+  background:#ffffff;
+  border-radius:22px;
+  padding:38px;
+  border:1px solid #e3edf8;
+  box-shadow:0 15px 40px rgba(0,0,0,.06);
+}
+
+.solution-icon{
+  width:64px;
+  height:64px;
+  border-radius:16px;
+  background:rgb(238, 240, 255);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:28px;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.solution-icon i{
+  font-size:30px;
+  color:#6a8cff;
+}
+
+.solution-card h3{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.solution-card p{
+  color:#4b5563;
+  line-height:1.6;
+  font-size:15px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .solution-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:500px){
+  .solution-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+
+
+.problem-section{
+  max-width:1200px;
+  margin:120px auto 0;
+  padding:0 20px;
+}
+
+.problem-title{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.problem-underline{
+  width:70px;
+  height:5px;
+  background:linear-gradient(90deg,#6a8cff,#7b5cff);
+  border-radius:10px;
+  margin-bottom:50px;
+}
+
+.problem-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:34px;
+}
+
+.problem-card{
+  background:#ffffff;
+  border-radius:22px;
+  padding:36px;
+  border:1px solid #e5eaf3;
+  box-shadow:0 12px 40px rgba(0,0,0,.05);
+}
+
+.problem-icon{
+  width:60px;
+  height:60px;
+  border-radius:14px;
+  background:#f1f6ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:25px;
+}
+
+.problem-icon i{
+  font-size:28px;
+  color:#6a8cff;
+}
+
+.problem-card h3{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.problem-card p{
+  color:#4b5563;
+  line-height:1.6;
+  font-size:15px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .problem-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:500px){
+  .problem-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+.workflow-section{
+  max-width:1200px;
+  margin:140px auto 0;
+  padding:0 20px 120px;
+}
+
+.workflow-title{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.workflow-underline{
+  width:70px;
+  height:5px;
+  background:linear-gradient(90deg,#6a8cff,#7b5cff);
+  border-radius:10px;
+  margin-bottom:60px;
+}
+
+.workflow-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+/* Cards */
+.before-box{
+  background:#fff6f6;
+  border-radius:22px;
+  padding:50px 40px;
+  border:2px solid #ff5b5b;
+}
+
+.after-box{
+  background:#effff5;
+  border-radius:22px;
+  padding:50px 40px;
+  border:2px solid #20c768;
+}
+
+.before-title{
+  font-size:28px;
+  font-weight:700;
+  color:#ff3b3b;
+  margin-bottom:40px;
+}
+
+.after-title{
+  font-size:28px;
+  font-weight:700;
+  color:#17b45d;
+  margin-bottom:40px;
+}
+
+  .workflow-item{
+  display:flex;
+  gap:18px;
+  margin-bottom:30px;
+  align-items:center;
+}
+
+
+.workflow-item i{
+  font-size:26px;
+  flex-shrink:0;
+}
+
+.before-box i{
+  color:#ff3b3b;
+}
+
+.after-box i{
+  color:#17b45d;
+}
+
+.workflow-item p{
+  font-size:17px;
+  line-height:1.6;
+  color:#374151;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .workflow-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+
+.outcomes-section{
+  max-width:1200px;
+  margin:140px auto 0;
+  padding:0 20px 120px;
+}
+
+.outcomes-title{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.outcomes-underline{
+  width:70px;
+  height:5px;
+  background:linear-gradient(90deg,#6a8cff,#7b5cff);
+  border-radius:10px;
+  margin-bottom:60px;
+}
+
+.outcomes-list{
+  display:flex;
+  flex-direction:column;
+  gap:34px;
+  max-width:900px;
+}
+
+.outcome-item{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.outcome-icon{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#65c93a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.outcome-icon i{
+  color:white;
+  font-size:20px;
+}
+
+.outcome-text{
+  font-size:22px;
+  color:#1f2937;
+  line-height:1.5;
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .outcome-text{
+    font-size:18px;
+  }
+}
+
+
+
+
+.why-section{
+  max-width:1200px;
+  margin:140px auto 0;
+  padding:0 20px 120px;
+}
+
+.why-title{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.why-underline{
+  width:70px;
+  height:5px;
+  background:linear-gradient(90deg,#6a8cff,#7b5cff);
+  border-radius:10px;
+  margin-bottom:30px;
+}
+
+.why-desc{
+  font-size:18px;
+  color:#374151;
+  margin-bottom:60px;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:34px;
+}
+
+.why-card{
+  background:#ffffff;
+  border-radius:18px;
+  padding:36px;
+  border:1px solid #e5eaf3;
+  box-shadow:0 12px 40px rgba(0,0,0,.05);
+}
+
+.why-icon{
+  width:52px;
+  height:52px;
+  border-radius:12px;
+  background:#eef4ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:22px;
+}
+
+.why-icon i{
+  font-size:26px;
+  color:#6a8cff;
+}
+
+.why-card h3{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.why-card p{
+  color:#4b5563;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .why-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:500px){
+  .why-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+
+
+.testimonial-section{
+  max-width:1200px;
+  margin:140px auto 0;
+  padding:0 20px 140px;
+}
+
+.testimonial-box{
+  position:relative;
+  background:#ffffff;
+  border-radius:22px;
+  padding:70px 80px 60px;
+  border:4px solid transparent;
+  background-image:
+    linear-gradient(#fff,#fff),
+    linear-gradient(90deg,#6a8cff,#7b3cff);
+  background-origin:border-box;
+  background-clip:padding-box,border-box;
+  box-shadow:0 20px 50px rgba(106,140,255,.2);
+  text-align:center;
+}
+
+.testimonial-quote{
+  font-size:30px;
+  line-height:1.6;
+  font-weight:700;
+  font-style: italic;
+  color:#2f43c6;
+}
+
+
+.testimonial-quote span{
+  color:#6b21a8;
+}
+
+.testimonial-sub{
+  margin-top:30px;
+  font-size:16px;
+  font-style:italic;
+  color:#111827;
+}
+
+.quote-left,
+.quote-right{
+  bottom:90px;
+  right:40px;
+}
+
+.quote-left{
+  top:30px;
+  left:40px;
+}
+
+.quote-right{
+  bottom:30px;
+  right:40px;
+}
+
+/* Responsive */
+@media(max-width:800px){
+  .testimonial-box{
+    padding:50px 30px;
+  }
+  .testimonial-quote{
+    font-size:22px;
+  }
+}
+
+
+
+
+
+
+
+.about-section{
+  max-width:1200px;
+  margin:140px auto 0;
+  padding:0 20px 120px;
+}
+
+.about-title{
+  font-size:38px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.about-underline{
+  width:70px;
+  height:5px;
+  background:linear-gradient(90deg,#6a8cff,#7b5cff);
+  border-radius:6px;
+  margin-bottom:28px;
+}
+
+.about-text{
+  font-size:20px;
+  color:#1f2937;
+  line-height:1.6;
+  max-width:1000px;
+}
+
+/* CTA */
+.cta-box{
+  margin-top:70px;
+  background:linear-gradient(90deg,#667EEA,#764BA2);
+  border-radius:22px;
+  padding:70px 40px;
+  text-align:center;
+  color:white;
+}
+
+.cta-box h2{
+  font-size:40px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.cta-box p{
+  font-size:22px;
+  opacity:.95;
+}
+
+/* Responsive */
+@media(max-width:800px){
+  .cta-box h2{
+    font-size:28px;
+  }
+  .cta-box p{
+    font-size:18px;
+  }
+}
+
+
+
+
+.team-section{
+  max-width:1200px;
+  margin:140px auto 0;
+  padding:0 20px 140px;
+  text-align:center;
+}
+
+.team-title{
+  font-size:36px;
+  font-weight:700;
+}
+
+.team-line{
+  width:70px;
+  height:5px;
+  background:linear-gradient(90deg,#6a8cff,#7b5cff);
+  border-radius:6px;
+  margin:14px auto 80px;
+}
+
+/* Main profile */
+.team-main{
+  width:380px;
+  margin:0 auto 90px;
+  background:#ffffff;
+  border-radius:30px;
+  padding:50px 30px;
+  box-shadow:0 15px 40px rgba(0,0,0,.05);
+}
+
+.team-photo{
+  width:150px;
+  height:150px;
+  border-radius:18px;
+  background:#eef4ff;
+  margin:0 auto 20px;
+  overflow:hidden;
+}
+
+.team-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.team-main h3{
+  font-size:24px;
+  font-weight:700;
+}
+
+.team-main span{
+  display:block;
+  color:#6a8cff;
+  font-weight:600;
+  margin:6px 0 20px;
+}
+
+.team-main p{
+  color:#6b7280;
+  font-size:18px;
+  line-height:1.5;
+}
+
+/* Bottom team */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:50px;
+}
+
+.team-card{
+  background:#ffffff;
+  border-radius:24px;
+  padding:40px 30px;
+  box-shadow:0 12px 35px rgba(0,0,0,.05);
+}
+
+.team-card .team-photo{
+  width:130px;
+  height:130px;
+  margin-bottom:20px;
+}
+
+.team-card h4{
+  font-size:22px;
+  font-weight:700;
+}
+
+.team-card p{
+  font-size:16px;
+  color:#6b7280;
+  margin-top:-25px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .team-grid{
+    grid-template-columns:1fr;
+  }
+  .team-main{
+    width:100%;
+  }
+}
+
+
+
+
+
+.contact-wrap{
+  max-width:1200px;
+  margin:140px auto 0;
+  padding:0 20px;
+}
+
+.badge{
+  display:inline-block;
+  background:#e6f6ff;
+  color:#0a7cc2;
+  padding:10px 24px;
+  border-radius:30px;
+  font-weight:600;
+  margin-bottom:30px;
+}
+
+.contact-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.contact-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.contact-header img{
+  height:26px;   /* smaller logo like screenshot */
+}
+
+
+.contact-name{
+  color:#0a7cc2;
+  font-weight:700;
+  margin-top:6px;
+  margin-bottom:40px;
+}
+
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:flex-start;
+}
+
+.contact-card{
+  background:#fff;
+  border-radius:14px;
+  padding:26px;
+  display:flex;
+  gap:18px;
+  align-items:center;
+  margin-bottom:30px;
+  box-shadow:0 10px 25px rgba(0,0,0,.05);
+  text-decoration:none;
+  color:#000;
+}
+
+.contact-icon{
+  width:48px;
+  height:48px;
+  background:#eef4ff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  color:#356bff;
+}
+
+.contact-text span{
+  display:block;
+  color:#6b7280;
+  font-size:14px;
+}
+
+.contact-text strong{
+  font-size:16px;
+}
+
+/* Booking Box */
+.booking-box{
+  border:2px dashed #3b6cff;
+  border-radius:20px;
+  padding:60px 40px;
+  text-align:center;
+}
+
+.booking-box i{
+  font-size:40px;
+  color:#356bff;
+  margin-bottom:20px;
+}
+
+.booking-box h3{
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.booking-box p{
+  color:#6b7280;
+  margin-bottom:30px;
+}
+
+.booking-box a{
+  display:inline-block;
+  background:linear-gradient(90deg,#667EEA,#764BA2);
+  padding:14px 50px;
+  border-radius:12px;
+  color:white;
+  font-weight:600;
+  text-decoration:none;
+  font-size:18px;
+}
+
+/* Footer */
+.footer{
+  margin-top:120px;
+  background:#445894;
+  color:white;
+  text-align:center;
+  padding:25px 20px;
+  font-weight:600;
+}
+
+@media(max-width:900px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+  .contact-icon{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:#e9f2ff;     /* soft blue circle */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.contact-icon img{
+  width:22px;
+  height:22px;
+}
+
+.contact-icon img{
+  width:24px;
+  height:24px;
+}
+.contact-card strong{
+  font-size:16px;
+  font-weight:500;          /* NOT bold */
+  color:#2563eb;            /* blue */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+
+
+
+.section-gap{
+  padding-bottom: 120px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="https://agentsarchitects.ai/" class="logo">
+    <img src="logo_tm.png" alt="AgentsArchitects Logo">
+  </a>
+</div>
+
+<section class="hero">
+  <div class="hero-box">
+
+    <h1>AI Analyst Agents for Investment Analysis & Deal Diligence</h1>
+
+    <div class="pill-row">
+      <div class="pill">
+        <div class="pill-label">CLIENT</div>
+        <div class="pill-title">ATAR CAPITAL</div>
+        <div class="pill-sub">Los Angeles, California</div>
+      </div>
+
+      <div class="pill">
+        <div class="pill-label">CLIENT SPONSOR</div>
+        <div class="pill-title">STANLEY HUANG, CFO</div>
+        <div class="pill-sub">
+          26 years of professional experience in corporate finance, private equity, and M&A advisory
+        </div>
+      </div>
+
+      <div class="pill">
+        <div class="pill-label">DURATION</div>
+        <div class="pill-title">3 MONTHS</div>
+        <div class="pill-sub">Efficient and Flawless work</div>
+      </div>
+
+      <div class="pill success-pill">
+        <div class="pill-label">STATUS</div>
+        <div class="pill-title">SUCCESSFULLY<br>DELIVERED</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="exec-wrap">
+  <h2>Executive Summary</h2>
+  <p>
+    Atar Capital partnered with <strong>AgentsArchitects.ai</strong> to design and deploy a proprietary AI Analyst Agent
+    system that augments and accelerates institutional-grade investment diligence.
+  </p>
+
+  <p>
+    The objective was not to "replace analysts," but to systematically challenge assumptions, reduce manual screening time,
+    and improve decision confidence across deal sourcing, memo review, financial modeling, and risk evaluation.
+  </p>
+
+  <p>
+    The engagement concluded with full client satisfaction, strong executive endorsement, and active recommendations
+    to peer investment firms pursuing similar AI-driven operational leverage.
+  </p>
+</section>
+
+
+<section class="problem-section">
+
+  <div class="problem-title">The Enterprise Problem</div>
+  <div class="problem-underline"></div>
+
+  <div class="problem-grid">
+
+    <div class="problem-card">
+      <div class="problem-icon"><i class="bi bi-lightning-charge"></i></div>
+      <h3>Deal Velocity vs. Rigor</h3>
+      <p>
+        High deal flow forces analysts to move fast, often relying on banker-prepared narratives
+        and optimistic projections rather than deep independent verification.
+      </p>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-icon"><i class="bi bi-people"></i></div>
+      <h3>Fragmented Diligence</h3>
+      <p>
+        Market validation, financial modeling, and risk analysis live in disconnected tools,
+        documents, and mental models, creating data silos.
+      </p>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-icon"><i class="bi bi-bar-chart"></i></div>
+      <h3>Inconsistent Quality</h3>
+      <p>
+        Outcomes vary by analyst experience, time pressure, and subjective judgment rather
+        than standardized, repeatable evaluation logic.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- PART 1 COMPLETE -->
+
+<section class="solution-section">
+
+  <div class="solution-title">Strategic Solution</div>
+  <div class="solution-underline"></div>
+
+  <div class="solution-desc">
+    AgentsArchitects.ai designed a multi-agent AI Analyst architecture, custom-built around Atar Capital's
+    internal evaluation criteria. Five coordinated AI agents operate as a unified diligence layer:
+  </div>
+
+  <div class="solution-grid">
+
+    <div class="solution-card">
+      <div class="solution-icon"><i class="bi bi-search"></i></div>
+      <h3>Deal Intake & Memo Intelligence</h3>
+      <p>Structures CIMs, Pitch Decks, And Investment Memos Into Machine-Readable Intelligence Instantly.</p>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon"><i class="bi bi-graph-up"></i></div>
+      <h3>Market & Competitor Analysis</h3>
+      <p>Independently Validates Market Size Claims, Competitive Positioning, And "Industry Leader" Narratives.</p>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon"><i class="bi bi-bullseye"></i></div>
+      <h3>Financial Model Challenger</h3>
+      <p>Stress-Tests Banker Assumptions Using DCF, LBO, Scenario Analysis, And Probabilistic Modeling.</p>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon"><i class="bi bi-shield-exclamation"></i></div>
+      <h3>Risk Profiling & Red-Flag Detection</h3>
+      <p>Identifies Operational, Leadership, Sectoral, And Execution Risks Before Capital Commitment.</p>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon"><i class="bi bi-file-earmark-text"></i></div>
+      <h3>Investment Case Generation</h3>
+      <p>Produces Executive-Ready Investment Memos, Summaries, And Decision Dashboards For IC Review.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="workflow-section section-gap">
+
+  <div class="workflow-title">Enterprise-Grade Workflow</div>
+  <div class="workflow-underline"></div>
+
+  <div class="workflow-grid">
+
+    <!-- BEFORE AI -->
+    <div class="before-box">
+      <div class="before-title">Before AI</div>
+
+      <div class="workflow-item">
+        <i class="bi bi-x-circle-fill"></i>
+        <p>Analysts spent hours manually reviewing each memo</p>
+      </div>
+
+      <div class="workflow-item">
+        <i class="bi bi-x-circle-fill"></i>
+        <p>Market claims often accepted at face value</p>
+      </div>
+
+      <div class="workflow-item">
+        <i class="bi bi-x-circle-fill"></i>
+        <p>Financial models reviewed late in the process</p>
+      </div>
+
+      <div class="workflow-item">
+        <i class="bi bi-x-circle-fill"></i>
+        <p>Risk surfaced reactively, not proactively</p>
+      </div>
+    </div>
+
+    <!-- AFTER AI -->
+    <div class="after-box">
+      <div class="after-title">After AI</div>
+
+      <div class="workflow-item">
+        <i class="bi bi-check-circle-fill"></i>
+        <p>Deals are pre-screened in minutes, not hours</p>
+      </div>
+
+      <div class="workflow-item">
+        <i class="bi bi-check-circle-fill"></i>
+        <p>Market narratives are independently validated</p>
+      </div>
+
+      <div class="workflow-item">
+        <i class="bi bi-check-circle-fill"></i>
+        <p>Financial projections are challenged upfront</p>
+      </div>
+
+      <div class="workflow-item">
+        <i class="bi bi-check-circle-fill"></i>
+        <p>Risks are surfaced early with quantified signals</p>
+      </div>
+
+      <div class="workflow-item">
+        <i class="bi bi-check-circle-fill"></i>
+        <p>IC receives structured, consistent insight</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+<section class="outcomes-section" style="margin-top:30px;">
+
+  <div class="outcomes-title">Measurable Outcomes</div>
+  <div class="outcomes-underline"></div>
+
+  <div class="outcomes-list">
+
+    <div class="outcome-item">
+      <div class="outcome-icon"><i class="bi bi-check"></i></div>
+      <div class="outcome-text">Significant reduction in analyst workload on early-stage deal screening</div>
+    </div>
+
+    <div class="outcome-item">
+      <div class="outcome-icon"><i class="bi bi-check"></i></div>
+      <div class="outcome-text">Faster investment committee readiness with standardized reports</div>
+    </div>
+
+    <div class="outcome-item">
+      <div class="outcome-icon"><i class="bi bi-check"></i></div>
+      <div class="outcome-text">Higher confidence in downside risk visibility</div>
+    </div>
+
+    <div class="outcome-item">
+      <div class="outcome-icon"><i class="bi bi-check"></i></div>
+      <div class="outcome-text">Consistent application of investment thesis across deals</div>
+    </div>
+
+    <div class="outcome-item">
+      <div class="outcome-icon"><i class="bi bi-check"></i></div>
+      <div class="outcome-text">Executive trust in AI-assisted decision support</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+<section class="why-section" style="margin-top:30px;">
+
+  <div class="why-title">Why This Matters for Investment Firms</div>
+  <div class="why-underline"></div>
+
+  <div class="why-desc">
+    This case demonstrates that AI in investing works best when:
+  </div>
+
+  <div class="why-grid">
+
+    <div class="why-card">
+      <div class="why-icon"><i class="bi bi-grid-3x3-gap"></i></div>
+      <h3>Custom Architected</h3>
+      <p>Not Off-The-Shelf; Built For Specific Workflows.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon"><i class="bi bi-cpu"></i></div>
+      <h3>Philosophy Encoded</h3>
+      <p>Encodes The Firm's Unique Investment Thesis.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon"><i class="bi bi-arrow-left-right"></i></div>
+      <h3>Challenges Assumptions</h3>
+      <p>Active Critique Rather Than Passive Summarization.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon"><i class="bi bi-person"></i></div>
+      <h3>Supports Humans</h3>
+      <p>Augments Judgment Without Replacing Authority.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon"><i class="bi bi-shield-check"></i></div>
+      <h3>Governed</h3>
+      <p>Auditable, Explainable, And Secure.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon"><i class="bi bi-rulers"></i></div>
+      <h3>Scalable Rigor</h3>
+      <p>Speed Without Sacrificing Analytical Depth.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+<section class="testimonial-section" style="margin-top:30px;">
+
+  <div class="testimonial-box">
+
+    <div class="testimonial-quote">
+  <span class="big-quote">“</span>
+  The client concluded the engagement highly satisfied and has actively recommended
+  <span>AgentsArchitects.ai</span> to peer investment firms exploring similar AI-driven diligence initiatives.
+  <span class="big-quote">”</span>
+</div>
+
+    <div class="testimonial-sub">
+      This recommendation-led outcome reflects trust earned through delivery, not marketing.
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+<section class="about-section" style="margin-top:30px;">
+
+  <div class="about-title">About AgentsArchitects.ai</div>
+  <div class="about-underline"></div>
+
+  <div class="about-text">
+    AgentsArchitects.ai specializes in enterprise-grade AI agent systems for Investment & Private Equity,
+    Financial Services, Strategy & Analytics teams, and regulated, high-stakes decision environments.
+  </div>
+
+  <div class="cta-box">
+    <h2>Ready to Transform Your Deal Diligence?</h2>
+    <p>Let's discuss how custom AI agents can augment your investment team.</p>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+<section class="team-section" style="margin-top:-20px;">
+
+  <div class="team-title">Our Team</div>
+  <div class="team-line"></div>
+
+  <!-- Main -->
+  <div class="team-main">
+    <div class="team-photo"><img src="sir.png" alt=""></div>
+    <h3>Binod Kumar</h3>
+    <span>CEO & Founder</span>
+    <p>
+      16+ year of Experience<br>
+      4 Research Paper in AI
+    </p>
+  </div>
+
+  <!-- Others -->
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-photo"><img src="Danishk.png" alt=""></div>
+      <h4>Danish K.</h4>
+      <p>MIT Researcher</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><img src="yash.png" alt=""></div>
+      <h4>Yash Patel</h4>
+      <p>............................</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><img src="raj.png" alt=""></div>
+      <h4>Raj Patil</h4>
+      <p>............................</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="contact-wrap" style="margin-top:-20px;">
+
+  <div class="badge">A TRUEFIRMS COMPANY</div>
+
+  <div class="contact-header">
+    <img src="logo_tm.png" alt="">
+  </div>
+
+  <div class="contact-name">BINOD KUMAR, CEO</div>
+
+  <div class="contact-grid">
+
+    <!-- Left -->
+    <div>
+
+      <a class="contact-card" href="mailto:binod@agentsarchitects.ai">
+        <div class="contact-icon">
+  <img src="email.png" alt="">
+</div>
+        <div class="contact-text">
+          <span>Email</span>
+          <strong>binod@agentsarchitects.ai</strong>
+        </div>
+      </a>
+
+      <a class="contact-card" href="https://agentsarchitects.ai" target="_blank">
+        <div class="contact-icon">
+  <img src="Website.png" alt="">
+</div>
+
+        <div class="contact-text">
+          <span>website</span>
+          <strong>agentsarchitects.ai</strong>
+        </div>
+      </a>
+
+      <a class="contact-card" href="https://wa.me/919999999999" target="_blank">
+        <div class="contact-icon">
+  <img src="call.png" alt="">
+</div>
+
+        <div class="contact-text">
+          <span>Mobile/Whatsapp</span>
+          <strong>+91-997-722-7253</strong>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Right -->
+    <div class="booking-box">
+      <i class="bi bi-calendar-check"></i>
+      <h3>Schedule a Discovery Call</h3>
+      <p>Book a 30-minute consultation to explore your use case.</p>
+      <a href="https://calendly.com/binod-agentsarchitects/30min?month=2026-01" target="_blank">Book a meeting</a>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="footer">
+  © Copyright AgentsArchitects.ai All Rights Reserved
+</div>
+
+
+</body>
+</html>
